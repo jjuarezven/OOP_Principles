@@ -9,7 +9,7 @@ namespace ACM.BL
     public class Customer
     {
         public int CustomerId { get; set; }
-        public string EmailAddess { get; set; }
+        public string EmailAddress { get; set; }
         public string FirstName  { get; set; }
         public string LastName { get; set; }
 
@@ -31,5 +31,44 @@ namespace ACM.BL
         }
 
         public static int InstanceCount { get; set; }
+
+        public Customer()
+        {
+
+        }
+
+        public Customer(int customerId)
+        {
+            this.CustomerId = customerId;
+        }
+
+        public bool Validate()
+        {
+            var isValid = true;
+            if (string.IsNullOrWhiteSpace(LastName))
+            {
+                isValid = false;
+            }
+            if (string.IsNullOrWhiteSpace(EmailAddress))
+            {
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        public bool Save() 
+        { 
+            return true;
+        }
+
+        public Customer Retrieve(int customerId)
+        {
+            return new Customer();
+        }
+
+        public List<Customer> Retrieve()
+        {
+            return new List<Customer>();
+        }
     }
 }
