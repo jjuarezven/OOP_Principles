@@ -29,5 +29,7 @@ namespace ACM.BL
                 return fullName;
             }
         }
+
+        public static int InstanceCount { get; set; }
     }
 }
