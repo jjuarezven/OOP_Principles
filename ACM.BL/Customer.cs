@@ -43,6 +43,8 @@ namespace ACM.BL
             AddressList = new List<Address>();
         }
 
+        public override string ToString() => FullName;
+
         public bool Validate()
         {
             var isValid = true;

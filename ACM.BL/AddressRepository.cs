@@ -70,12 +70,30 @@ namespace ACM.BL
         /// Saves the current address.
         /// </summary>
         /// <returns></returns>
-        public bool Save(Address address)
+        public bool Save(Product product)
         {
-            // Code that saves the passed in address
+            var success = true;
 
-            return true;
+            if (product.HasChanges)
+            {
+                if (product.IsValid)
+                {
+                    if (product.IsNew)
+                    {
+                        // Call an Insert Stored Procedure
+
+                    }
+                    else
+                    {
+                        // Call an Update Stored Procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
-
 }
