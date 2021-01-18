@@ -9,10 +9,10 @@ namespace ACM.BL
     public class Customer
     {
         public int CustomerId { get; set; }
+        public int CustomerType { get; set; }
         public string EmailAddress { get; set; }
         public string FirstName  { get; set; }
         public string LastName { get; set; }
-
         public string FullName
         {
             get
@@ -29,10 +29,10 @@ namespace ACM.BL
                 return fullName;
             }
         }
-
         public static int InstanceCount { get; set; }
+        public List<Address> AddressList { get; set; }
 
-        public Customer()
+        public Customer(): this(0)
         {
 
         }
@@ -40,6 +40,7 @@ namespace ACM.BL
         public Customer(int customerId)
         {
             this.CustomerId = customerId;
+            AddressList = new List<Address>();
         }
 
         public bool Validate()
