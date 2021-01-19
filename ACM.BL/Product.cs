@@ -1,4 +1,6 @@
-﻿namespace ACM.BL
+﻿using Acme.Common;
+
+namespace ACM.BL
 {
     public class Product : EntityBase
     {
@@ -14,7 +16,13 @@
         public decimal? CurrentPrice { get; set; }
         public string ProductDescription { get; set; }
         public int ProductId { get; private set; }
-        public string ProductName { get; set; }
+        private string productName;
+
+        public string ProductName
+        {
+            get { return productName.InsertSpaces(); }
+            set { productName = value; }
+        }
 
         public override string ToString() => ProductName;
 
